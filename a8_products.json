@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sample-001",
+    "title": "【サンプル】このファイルを編集してください",
+    "copy": "A8.netの「プログラム検索」または提携中プログラムのページから、紹介したい広告のリンクと素材画像URLを取得して、この内容を書き換えてください。",
+    "image_url": "https://via.placeholder.com/1080x1080.png?text=A8.net+Sample",
+    "affiliate_url": "https://px.a8.net/svt/ejp?a8mat=XXXXXX+XXXXXX+XXXX+XXXXXX",
+    "hashtags": "#PR #広告 #サンプル"
+  },
+  {
+    "id": "sample-002",
+    "title": "【サンプル2】1件ずつ順番に自動投稿されます",
+    "copy": "ここに書いた内容がそのままInstagramのキャプションに使われます。商品の魅力やキャンペーン情報などを書いておくと効果的です。",
+    "image_url": "",
+    "affiliate_url": "https://px.a8.net/svt/ejp?a8mat=YYYYYY+YYYYYY+YYYY+YYYYYY",
+    "hashtags": "#PR #広告 #おすすめ"
+  }
+]
