@@ -1,0 +1,60 @@
+name: A8.net アフィリエイト広告 自動投稿
+
+on:
+  schedule:
+    # UTC 06:00 = JST 15:00 に1日1回投稿
+    - cron: '0 6 * * *'
+
+  # 手動実行（テスト用）
+  workflow_dispatch:
+    inputs:
+      post_mode:
+        description: '投稿モード'
+        required: false
+        default: 'sequential'
+        type: choice
+        options:
+          - sequential   # 登録順に1件ずつ（最後まで行ったら最初に戻る）
+          - random       # ランダムに1件
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python 3.11 をセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 日本語フォント（Noto Sans CJK）をインストール
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+
+      - name: 依存ライブラリをインストール
+        run: |
+          pip install requests pillow
+
+      - name: A8.net広告をInstagramに投稿
+        env:
+          META_ACCESS_TOKEN:    ${{ secrets.META_ACCESS_TOKEN }}
+          INSTAGRAM_ACCOUNT_ID: ${{ secrets.INSTAGRAM_ACCOUNT_ID }}
+          IMGBB_API_KEY:        ${{ secrets.IMGBB_API_KEY }}
+          A8_POST_MODE:         ${{ github.event.inputs.post_mode || 'sequential' }}
+        run: python a8_post.py
+
+      # 「順番投稿」のために、次回投稿する商品の番号をリポジトリに保存する
+      - name: 投稿状態をリポジトリにコミット
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add a8_state.json
+          git commit -m "🤖 A8.net投稿状態を更新: $(date +'%Y-%m-%d %H:%M') JST" || echo "変更なし"
+          git push
