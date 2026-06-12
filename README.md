@@ -1,0 +1,2 @@
+# a8_instagram_auto_post
+A8.netのアフィリエイト広告をインスタに投稿する
