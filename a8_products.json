@@ -1,11 +1,11 @@
 [
-  {
-    "id": "sample-001",
-    "title": "【サンプル】このファイルを編集してください",
-    "copy": "A8.netの「プログラム検索」または提携中プログラムのページから、紹介したい広告のリンクと素材画像URLを取得して、この内容を書き換えてください。",
-    "image_url": "https://via.placeholder.com/1080x1080.png?text=A8.net+Sample",
-    "affiliate_url": "https://px.a8.net/svt/ejp?a8mat=XXXXXX+XXXXXX+XXXX+XXXXXX",
-    "hashtags": "#PR #広告 #サンプル"
+{
+    "id": "sample-002",
+    "title": "コンセントを差すだけ！工事不要！Wi-Fi【SoftBank Air】",
+    "copy": "コンセントに差すだけで使える工事不要のWi-Fiシステム！",
+    "image_url": "https://px.a8.net/svt/ejp?a8mat=4B5UW5+F006GI+4MTU+60H7L",
+    "affiliate_url": "https://px.a8.net/svt/ejp?a8mat=4B5UW5+F006GI+4MTU+5Z6WY",
+    "hashtags": "#SoftBankAir #工事不要WiFi #インターネット #PR #広告"
   },
   {
     "id": "sample-002",
